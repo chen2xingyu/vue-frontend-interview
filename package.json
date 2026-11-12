@@ -20,6 +20,7 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,vue,js,json,md,css,scss,html}\"",
     "typecheck": "pnpm -r --parallel run typecheck",
     "test": "pnpm -r --parallel run test",
+    "e2e": "pnpm -C playwright e2e",
     "clean": "pnpm -r exec rm -rf dist node_modules && rm -rf node_modules",
     "prepare": "husky"
   },

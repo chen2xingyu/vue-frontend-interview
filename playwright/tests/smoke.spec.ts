@@ -38,7 +38,8 @@ test.describe('前端面试研习社 —— 核心路径', () => {
     await page.getByPlaceholder('搜索问题、技术点或场景…').fill('Proxy')
     const cards = page.locator('.question')
     await expect(cards.first()).toBeVisible()
-    await expect(cards.count()).toBeGreaterThan(0)
+    const count = await cards.count()
+    expect(count).toBeGreaterThan(0)
   })
 
   test('收藏切换：点击后显示已收藏', async ({ page }) => {

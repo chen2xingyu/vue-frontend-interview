@@ -45,3 +45,8 @@ coverage
 Desktop.ini
 $RECYCLE.BIN/
 .eslintcache
+
+# Playwright
+playwright-report
+test-results
+**/playwright/.cache

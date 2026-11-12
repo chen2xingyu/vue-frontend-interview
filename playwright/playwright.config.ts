@@ -31,13 +31,14 @@ export default defineConfig({
   // 本地运行时自动启动服务
   webServer: [
     {
-      command: 'pnpm server',
+      // 直接用子包脚本，绕开根目录 script 解析歧义
+      command: 'pnpm -C ../server dev',
       port: 3000,
       reuseExistingServer: !process.env.CI,
       timeout: 30_000,
     },
     {
-      command: 'pnpm dev',
+      command: 'pnpm -C ../apps/web dev',
       port: 5173,
       reuseExistingServer: !process.env.CI,
       timeout: 60_000,
