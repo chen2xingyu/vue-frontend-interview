@@ -10,10 +10,12 @@
     "pnpm": ">=9.0.0"
   },
   "scripts": {
-    "dev": "pnpm --filter web dev",
+    "dev": "pnpm --parallel --filter web --filter server run dev",
+    "dev:web": "pnpm --filter web dev",
+    "dev:server": "pnpm --filter server dev",
+    "server": "pnpm --filter server dev",
     "build": "pnpm --filter web build",
     "preview": "pnpm --filter web preview",
-    "server": "pnpm --filter server dev",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "format": "prettier --write \"**/*.{ts,tsx,vue,js,json,md,css,scss,html}\"",
