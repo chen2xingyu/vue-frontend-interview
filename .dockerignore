@@ -1,0 +1,22 @@
+# 构建产物
+node_modules
+dist
+apps/web/dist
+packages/ui/dist
+*.log
+coverage
+
+# Git
+.git
+.gitignore
+.github/workflows
+
+# 环境
+.env
+.env.*.local
+
+# 编辑器
+.vscode
+.idea
+.DS_Store
+Thumbs.db

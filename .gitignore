@@ -1,0 +1,47 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build output
+dist
+**/dist
+.turbo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
+.env.local
+.env.*.local
+
+# Coverage
+coverage
+**/coverage
+
+# Husky (keep .husky/commit-msg etc., but not node_modules inside)
+.husky/_
+
+# OS
+Desktop.ini
+$RECYCLE.BIN/
+.eslintcache

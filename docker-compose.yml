@@ -1,0 +1,36 @@
+version: "3.9"
+
+# P9 面试点：为什么把前端和 BFF 放到同一个 compose 里？
+# —— 本地开发一键启动；生产可以拆成独立服务 + 独立部署
+#    （docker compose 只是编排方式，不是必须绑定在一起）
+services:
+  # ---------- BFF ----------
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    container_name: feis-server
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+
+  # ---------- 前端 ----------
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: feis-web
+    restart: unless-stopped
+    depends_on:
+      server:
+        condition: service_healthy
+    ports:
+      - "8080:80"

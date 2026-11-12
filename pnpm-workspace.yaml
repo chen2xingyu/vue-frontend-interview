@@ -1,0 +1,8 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'server'
+  - 'playwright'
+allowBuilds:
+  esbuild: true
+  vue-demi: true
